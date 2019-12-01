@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Resume</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3.js"></script>
+    <script src="https://unpkg.com/d3-simple-slider"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Bradley+Hand" /> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day" />
+    <style type="text/css">
+        .avatar {
+          vertical-align: middle;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          border: 4px solid white;
+          margin-top: 30px;
+          margin-left: 20px;
+        }
+        path {
+          stroke: #fff;
+        }
+
+        .flex-parent {
+          display: flex;
+        }
+        .flex-child {
+          flex: 1;
+        }
+
+        .slice {
+            cursor: pointer;
+        }
+
+        .slice .main-arc {
+            stroke: #fff;
+            stroke-width: 2px;
+        }
+
+        .slice .hidden-arc {
+            fill: none;
+        }
+
+        .slice text {
+            pointer-events: none;
+            dominant-baseline: middle;
+            text-anchor: middle;
+        }
+
+    </style>
+  </head>
+  <body>
+    <!-- <div style="width: 40%; background-color: white; color: black; float: left"> -->
+    <center>
+        <div style="width: 50%; height: 50%; opacity: 0.9; margin-top: 20px; margin-left: 10px; border-radius: 20px">
+            <img src="profile.jpeg" alt="Avatar" class="avatar">
+                <div style="font-family: 'Montserrat', sans-serif; font-size: 40px; color: black;">
+                    <b>Resume | Shivam Dhar</b><br/>
+                    <a href="mailto:sdhar3@asu.edu"><img src="gmail.png" style="width: 40px; height: 30px; margin-right: 20px; margin-left: 20px" id="gmail" class="social"></a>
+                        <a href="https://www.linkedin.com/in/shivamdhar/"><img src="linkedin.webp" style="width: 40px; height: 40px; margin-right: 20px;" id="linkedin" class="social"></a>
+                        <a href="https://github.com/Shivamdhar"><img src="github.svg" style="width: 40px; height: 40px; margin-right: 20px" id="github" class="social"></a>
+                        <a href="https://gitlab.com/shivamdhar"><img src="gitlab.png" style="width: 40px; height: 40px; margin-right: 20px" class="social" id="gitlab"></a>
+                        <a href="https://www.quora.com/profile/Shivam-Dhar/"><img src="quora.png" style="width: 40px; height: 40px" class="social" id="quora"></a>
+                </div>
+           </div>
+         </center> 
+        <center>
+        <div style="font-family: 'Montserrat', sans-serif; opacity: 0.8; border-radius: 20px">
+            <br/>
+            <center><div id="link" style="font-family: Georgia, Times, 'Times New Roman', serif; font-size: 20px; color: black;">
+            </div></center>
+            <div>
+                <h3 style="font-family: 'Montserrat', sans-serif; font-size: 25px; margin-top: 20px">Skills</h3>
+            </div>
+            <div id= "bar" style="width: 500px; height: 30px; background-color: grey; border-radius: 20px; border: 3px solid white; margin-left: 2px; z-index: 10; visibility: hidden">
+                <div id= "innerbar" style="width: 310px; height: 24px; background-color: #fed700; border-radius: 20px; z-index: 10; float: left; visibility: hidden">
+                    <div id="rating" style="color: black; margin-left: 300px; z-index: 10; font-family: 'Montserrat', sans-serif;"></div>
+                </div>
+            </div>
+            <svg id="skills"></svg>
+        </div><br/>
+        </center>
+    <!-- </div> -->
+    <center>
+    <div style="width: 58%; height:610px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
+        <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Timeline of Events </h3>
+        <div class="col-sm" style="text-align: left"><div id="slider-time"></div></div>
+            <div><div style="width: 60%;" id="value-time-parent">
+                <div id="value-time" style="text-align: left; border-radius: 15px; padding: 15px"></div>
+                <div id="value-time-image"></div>
+            </div></div>
+    </div>
+    </center>
+
+    <center>
+    <div style="width: 80%; height:500px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
+        <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Academic Projects </h3>
+        <div class='parent flex-parent'>
+          <div style="display: inline-block;" class='child flex-child'>
+            <svg id="dataviz1"></svg>
+          </div>
+          <div style="display: inline-block;" id="project_description" class='child flex-child'>
+          </div>
+        </div>
+
+    </div>
+    </center>
+  </body>
+
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="d3.v3.min.js" charset="utf-8"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script type="text/javascript">
+      function drawSkills(){
+
+        const width = window.innerWidth,
+            height = window.innerHeight,
+            maxRadius = (Math.min(width, height) / 2.5) - 5;
+
+        const formatNumber = d3.format(',d');
+
+        const x = d3.scaleLinear()
+            .range([0, 2 * Math.PI])
+            .clamp(true);
+
+        const y = d3.scaleSqrt()
+            .range([maxRadius*.1, maxRadius]);
+
+        const color = d3.scaleOrdinal(d3.schemeCategory20);
+
+        const partition = d3.partition();
+
+        const arc = d3.arc()
+            .startAngle(d => x(d.x0))
+            .endAngle(d => x(d.x1))
+            .innerRadius(d => Math.max(0, y(d.y0)))
+            .outerRadius(d => Math.max(0, y(d.y1)));
+
+        const middleArcLine = d => {
+            const halfPi = Math.PI/2;
+            const angles = [x(d.x0) - halfPi, x(d.x1) - halfPi];
+            const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+
+            const middleAngle = (angles[1] + angles[0]) / 2;
+            const invertDirection = middleAngle > 0 && middleAngle < Math.PI; // On lower quadrants write text ccw
+            if (invertDirection) { angles.reverse(); }
+
+            const path = d3.path();
+            path.arc(0, 0, r, angles[0], angles[1], invertDirection);
+            return path.toString();
+        };
+
+        const textFits = d => {
+            const CHAR_SPACE = 6;
+
+            const deltaAngle = x(d.x1) - x(d.x0);
+            const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+            const perimeter = r * deltaAngle;
+
+            return d.data.name.length * CHAR_SPACE < perimeter;
+        };
+
+        const svg = d3.select('#skills')
+            .style('width', '100vw')
+            .style('height', '100vh')
+            .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
+            .on('click', () => focusOn()); // Reset zoom on canvas click
+
+        d3.json('skills.json', (error, root) => {
+            if (error) throw error;
+
+            root = d3.hierarchy(root);
+            root.sum(d => d.size);
+
+            const slice = svg.selectAll('g.slice')
+                .data(partition(root).descendants());
+
+            slice.exit().remove();
+
+            var tooltip = d3v3.select("body")
+              .append("div")
+              .style("position", "absolute")
+              .style("z-index", "10")
+              .style("visibility", "hidden")
+              .style("background-color", "black")
+              .style("color", "white")
+              .style("padding", "10px")
+              .style("border-radius", "5px")
+              .style("text-align", "center")
+              .style("border", "1.5px solid white")
+              .style("opacity", "0.8")
+              .attr("class", "tooltip2");
+
+            const newSlice = slice.enter()
+                .append('g').attr('class', 'slice')
+                .on('click', d => {
+                    d3.event.stopPropagation();
+                    focusOn(d);
+                })
+                .on("mouseover", function(d){
+                  if(d.data.name != "Skills"){
+                    d3v3.select(this).style("cursor", "pointer");
+                    return tooltip.html("<u>" + (d.parent ? d.parent.data.name : "") + "</u><br/>" + "<b>" + d.data.name + "</b><br/>" + (d.data.show ? d.value/10 + "<img src='star.gif' width='30px' height='30px'>" : "")).style("visibility", "visible");
+                  }
+                })
+                .on("mousemove", function(){ return tooltip.style("top", (event.pageY-105)+"px").style("left",(event.pageX-50)+"px"); })
+                .on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
+
+            newSlice.append('title')
+                .text(d => d.data.name + '\n' + formatNumber(d.value));
+
+            newSlice.append('path')
+                .attr('class', 'main-arc')
+                .style('fill', d => color((d.children ? d : d.parent).data.name))
+                .attr('d', arc);
+
+            newSlice.append('path')
+                .attr('class', 'hidden-arc')
+                .attr('id', (_, i) => `hiddenArc${i}`)
+                .attr('d', middleArcLine);
+
+            const text = newSlice.append('text')
+                .attr('display', d => textFits(d) ? null : 'none');
+
+            text.append('textPath')
+                .attr('startOffset','50%')
+                .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+                .text(d => d.data.name)
+                .style('fill', 'none')
+                .style('stroke', '#fff')
+                .style('stroke-width', 5)
+                .style('stroke-linejoin', 'round');
+
+            text.append('textPath')
+                .attr('startOffset','50%')
+                .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+                .text(d => d.data.name);
+        });
+        var regions = ["Languages", "Frameworks", "DevOps", "Databases", "Machine Learning"]
+        var barWidth = d3.scaleLinear().domain([0, 100]).range([20, 500]);
+        var barWidthSkills = d3.scaleOrdinal().domain([230, 250, 320, 360]).range([170, 340, 510, 680]);
+        function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
+
+            const transition = svg.transition()
+                .duration(750)
+                .tween('scale', () => {
+                    const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                        yd = d3.interpolate(y.domain(), [d.y0, 1]);
+                    return t => { x.domain(xd(t)); y.domain(yd(t)); };
+                });
+
+            transition.selectAll('path.main-arc')
+                .attrTween('d', d => () => arc(d));
+
+            transition.selectAll('path.hidden-arc')
+                .attrTween('d', d => () => middleArcLine(d));
+
+            transition.selectAll('text')
+                .attrTween('display', d => () => textFits(d) ? null : 'none');
+
+            moveStackToFront(d);
+
+
+            function moveStackToFront(elD) {
+                svg.selectAll('.slice').filter(d => d === elD)
+                    .each(function(d) {
+                        this.parentNode.appendChild(this);
+                        if (d.parent) { moveStackToFront(d.parent); }
+                    })
+            }
+
+            d3v3.select("#rating").selectAll("text").remove()
+            if(d.data.name=="Skills"){
+              return
+            }
+            else if(regions.includes(d.parent.data.name)){
+
+              d3v3.select("#bar").style("visibility", "visible")
+              d3v3.select("#innerbar").style("width", barWidth(d.value) + "px").style("visibility", "visible")
+              d3v3.select("#rating").append("text").html(d.data.name + "&nbsp;&nbsp;")
+              d3v3.select("#rating").append("text").html(d.value/10 + "/10")
+
+            }
+        }
+      }
+      function drawViz1(){
+          // d3v3.select("#innerbar").style("visibility", "hidden")
+          // d3v3.select("#bar").style("visibility", "hidden")
+          var margin = {top: 0, right: 20, bottom: 20, left: 20}
+          var width = 680 - margin.left - margin.right;
+          var height = 600 - margin.top - margin.bottom;
+          
+          var color = d3.scaleQuantize()
+            .domain([30,360])
+            .range(d3.schemePurples[9])
+
+          var svg = d3v3.select('#dataviz1')
+                      .attr('width', width + margin.left + margin.right)
+                      .attr('height', height + margin.top + margin.bottom);
+
+          var pack = d3v3.layout.pack().size([width, height]);
+
+          d3v3.json('projects.json', function(error, data){
+              var nodes = pack.nodes(data);
+              var areas = ["Projects"]
+              var myColor = d3.scaleOrdinal()
+                .domain(areas)
+                .range(["#e7e7e7"]);
+              var regions = ["Data Visualization", "Semantic Web Mining", "Cloud Computing and Big Data", "Databases", "Data Mining and Machine Learning Lab"]
+              var barWidth = d3.scaleLinear().domain([0, 100]).range([20, 500]);
+              var barWidthSkills = d3.scaleOrdinal().domain([230, 250, 320, 360]).range([170, 340, 510, 680]);
+
+              var tooltip = d3v3.select("body")
+              .append("div")
+              .style("position", "absolute")
+              .style("z-index", "10")
+              .style("visibility", "hidden")
+              .style("background-color", "black")
+              .style("color", "white")
+              .style("padding", "10px")
+              .style("border-radius", "5px")
+              .style("text-align", "center")
+              .style("border", "1.5px solid white")
+              .style("opacity", "0.8")
+              .attr("class", "tooltip2");
+
+              var diameter = 600;
+        var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+        var bubble = d3.pack(data)
+            .size([diameter, diameter])
+            .padding(1.5);
+
+        var svg = d3.select("#dataviz1")
+            .append("svg")
+            .attr("width", diameter)
+            .attr("height", diameter)
+            .attr("class", "bubble");
+
+        var nodes = d3.hierarchy(data)
+            .sum(function(d) { return d.value; });
+
+        var node = svg.selectAll(".node")
+            .data(bubble(nodes).descendants())
+            .enter()
+            .filter(function(d){
+                return  !d.children
+            })
+            .append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+
+        node.append("circle")
+            .attr("r", function(d) {
+                return d.r;
+            })
+            .style("fill", function(d,i) {
+                return color(i);
+            })
+           .on("click", function(d){
+               console.log(d);
+               d3.select("#project_description").html("")
+               if (d.data.abbr == "DV"){
+
+                   d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% height=40% src=" + d.data.image + ">")
+               }
+               else if(d.data.abbr == "SMM"){
+
+                   d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% height=40% src=" + d.data.image + ">")
+               }
+               else{
+                  d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% height=50% src=" + d.data.image + ">")
+               }
+
+             })
+             .on("mouseover", function(d){
+                if(regions.includes(d.name)){
+                  d3v3.select(this).style("cursor", "pointer");
+                  return tooltip.html("<b>" + d.data.name + "</b><br/>").style("visibility", "visible");
+                }
+                else{
+                  d3v3.select(this).style("cursor", "pointer");
+                  return tooltip.html("<b>" + d.data.name + "</b><br/>").style("visibility", "visible");
+                }
+            })
+             .on("mousemove", function(){ return tooltip.style("top", (event.pageY-105)+"px").style("left",(event.pageX-50)+"px"); })
+             .on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
+
+        d3.select("#project_description").append("text").html("<br/><div>"+ data.children[1].description +"</div><br/><img width=100% height=50% src=" + data.children[1].image + ">")
+        node.append("text")
+            .attr("dy", ".2em")
+            .style("text-anchor", "middle")
+            .html(function(d) {
+                return d.data.abbr;
+            })
+            .attr("font-size", function(d){
+                return 20;
+            })
+            .attr("fill", "black");
+          });
+
+      }
+
+
+      function timeline(){
+        var dataTime = d3.range(0, 8).map(function(d) {
+        return new Date(2012 + d, 7, 3);
+      });
+
+      var sliderTime = d3
+        .sliderBottom()
+        .min(d3.min(dataTime))
+        .max(d3.max(dataTime))
+        .step(1000 * 60 * 60 * 24 * 365)
+        .width(800)
+        .tickFormat(d3.timeFormat('%Y'))
+        .tickValues(dataTime)
+        .default(new Date(1998, 10, 3))
+        .on('onchange', val => {
+          if(d3.timeFormat('%Y')(sliderTime.value()) === "2012"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='book.gif' width='50px' height='50px'></td><td>Started my bachelors in Computer Science and Engineering from PES Institute Of Technology, Bangalore, India. </td></tr><tr><td><img src='dunamis.gif' width='50px' height='50px'></td><td>Organized Mathemaniac as part of the Dunamis Science fest.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "250px").attr("width", "520px")
+
+          }
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2013"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='publicist.png' width='50px' height='50px'></td><td>Participated in AtmaTrisha, college's cultural fest as a publicist, to raise funds for people in need - by making and selling sandwiches.<br/></td></tr><tr><td><img src='mts.gif' width='80px' height='70px'></td><td>Joined Ordell Ugo as a Member Technical Staff.<br/></td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2013.png").attr("height", "200px").attr("width", "500px")
+          }
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2014"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='cloud.png' width='80px' height='70px'></td><td>Started my first ever research project in the Cloud Computing and Big Data Lab at PESIT.</td></tr><tr><td><img src='adsense.png' width='60px' height='70px'></td><td>As a publicist and advertiser created ad campaigns for Abalashrama - shelter to abandoned women and orphan girls, using Google adsense.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2014.png").attr("height", "200px").attr("width", "530px")
+          }
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2015"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='collaboration.png' width='50px' height='50px'></td><td>Completed projects in collaboration with EMC2 and Hewlett Packard Enterprise.</td></tr><tr><td><img src='intern.png' width='50px' height='50px'></td><td>Joined Oracle as a summer intern.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2015.png").attr("height", "180px").attr("width", "550px")
+          }
+
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2016"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='intern.png' width='50px' height='50px'></td><td>Joined India's largest furniture giant, Urban Ladder as a spring intern.</td></tr><tr><td><img src='job.png' width='50px' height='50px'></td><td>Accepted the offer for Software Developer 1 at Urban Ladder.</td></tr><tr><td><img src='paper.png' width='50px' height='50px'></td><td>Presented paper titled Identification of Escalations during Product Maintenance at the 5th International Conference on Advances in Computing, Communications and Informatics (ICACCI), Jaipur, India which was published in IEEE Explore.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2016.png").attr("height", "180px").attr("width", "550px")
+          }
+
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2017"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='promotion.png' width='50px' height='50px'></td><td>Promoted to Software Development Engineer 2 at Urban ladder.</td></tr><tr><td><img src='web.png' width='50px' height='=50px'></td><td>Conducted a session for web development at Mountblue.</td></tr><tr><td><img src='gre.jpg' width='50px' height='50px'></td><td>Took GRE and TOEFL for applying to masters in Computer Science in the United States.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2017.png").attr("height", "280px").attr("width", "550px")
+          }
+
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2018"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='cap.png' width='50px' height='50px'></td><td>Accepted the admit and started my masters in Computer Science at Arizona State University.</td></tr><tr><td><img src='hackathon.svg' width='50px' height='50px'></td><td>Won the 5th annual Hacks for Humanity at ASU.</td></tr><tr><td><img src='research.png' width='50px' height='50px'></td><td>Started working as a CIS grader and Research aide at WP Carey School of Business under Ziru Li.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2018.png").attr("height", "280px").attr("width", "550px")
+          }
+
+          else if(d3.timeFormat('%Y')(sliderTime.value()) === "2019"){
+            d3.select('#value-time').selectAll("*").remove()
+            d3.select('#value-time-image').selectAll("*").remove()
+
+            d3.select('#value-time').append("text").style("border-radius", "10px").style("background-color", "#e6e6e8").html("<table><tr><td><img src='intern.png' width='50px' height='50px'></td><td>Joined TeleTracking Technologies as a Software Engineer Intern and was among the top 5 interns this summer.</td></tr><tr><td><img src='paper.png' width='50px' height='50px'></td><td>Demo paper titled InterSpot: Interactive Spammer Detection in Social Media got published at the International Joint Conference on Artificial Intelligence (IJCAI), Macao, China under the guidance of Dr. Huan Liu and Kaize Ding.</td></tr><tr><td><img src='job.png' width='50px' height='50px'></td><td>Accepted part-time Software Engineer 1 position at TeleTracking Technologies for the fall 2019.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2019.png").attr("height", "250px").attr("width", "550px")
+          }
+
+        });
+
+      var gTime = d3
+        .select('div#slider-time')
+        .append('svg')
+        .attr('width', 1000)
+        .attr('height', 100)
+        .append('g')
+        .attr('transform', 'translate(30,30)');
+
+      gTime.call(sliderTime);
+      d3.select('#value-time').selectAll("*").remove()
+
+      d3.select('#value-time').append("text").html("<table><tr><td><img src='book.gif' width='50px' height='50px'></td><td>Started my bachelors in Computer Science and Engineering from PES Institute Of Technology, Bangalore, India. </td></tr><tr><td><img src='dunamis.gif' width='50px' height='50px'></td><td>Organized Mathemaniac as part of the Dunamis Science fest.</td></tr></table>")
+      d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "250px").attr("width", "520px")
+
+
+    }
+    drawViz1();
+    timeline();
+    drawSkills();
+
+
+  </script>
+</html>

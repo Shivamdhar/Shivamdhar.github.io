@@ -1,0 +1,141 @@
+{
+   "name":"Skills",
+   "show": false,
+   "children":[
+      {
+         "name":"Languages",
+         "show": false,
+         "children":[
+            {
+               "name":"Java",
+               "size":80,
+               "show": true
+            },
+            {
+               "name":"Python",
+               "size":100,
+               "show": true
+            },
+            {
+               "name":"Ruby",
+               "size":100,
+               "show": true
+            },
+            {
+               "name":"Javascript",
+               "size":80,
+               "show": true
+            }
+         ]
+      },
+      {
+         "name":"Frameworks",
+         "show": false,
+         "children":[
+            {
+               "name":"Spring",
+               "size":50,
+               "show": true
+            },
+            {
+               "name":"Django",
+               "size":60,
+               "show": true
+            },
+            {
+               "name":"React",
+               "size":40,
+               "show": true
+            },
+            {
+               "name":"Flask",
+               "size":90,
+               "show": true
+            },
+            {
+               "name":"Rails",
+               "size":80,
+               "show": true
+            }
+         ]
+      },
+      {
+         "name":"DevOps",
+         "show": false,
+         "children":[
+            {
+               "name":"AWS",
+               "size":60,
+               "show": true
+            },
+            {
+               "name":"Docker",
+               "size":80,
+               "show": true
+            },
+            {
+               "name":"Kubernetes",
+               "size":60,
+               "show": true
+            },
+            {
+               "name":"Jenkins",
+               "size":30,
+               "show": true
+            }
+         ]
+      },
+      {
+         "name":"Databases",
+         "show": false,
+         "children":[
+            {
+               "name":"MySQL",
+               "size":90,
+               "show": true
+            },
+            {
+               "name":"PostgreSQL",
+               "size":70,
+               "show": true
+            },
+            {
+               "name":"MongoDB",
+               "size":60,
+               "show": true
+            },
+            {
+               "name":"Cassandra",
+               "size":30,
+               "show": true
+            }
+         ]
+      },
+      {
+         "name":"Machine Learning",
+         "show": false,
+         "children":[
+            {
+               "name":"Sklearn",
+               "size":60,
+               "show": true
+            },
+            {
+               "name":"Weka",
+               "size":70,
+               "show": true
+            },
+            {
+               "name":"Numpy",
+               "size":80,
+               "show": true
+            },
+            {
+               "name":"Tensorflow",
+               "size":30,
+               "show": true
+            }
+         ]
+      }
+   ]
+}

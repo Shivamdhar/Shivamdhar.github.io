@@ -1,0 +1,45 @@
+{
+    "name": "projects",
+    "children":[
+        {
+            "name": "Data Visualization",
+            "abbr": "DV",
+            "image": "beagle.png",
+            "value": 100,
+            "title": "Lessons Learned Developing a Visual Analytics Solution for Investigative Analysis of Scamming Activities",
+            "description": "<table><tr><td border=3 height=100 width=100><img src='cyber.png' width=60px height=50px></td><td border=3 height=100 width=500><b><h3>Lessons Learned Developing a Visual Analytics Solution for Investigative Analysis of Scamming Activities</h3></b><br/>Cybersecurity analysts work on large communication datasets to perform investigative analysis by painstakingly going over thousands of email conversations to find potential scamming activities and the network of cyber scammers. Traditionally, experts used email clients, database systems and text editors to perform this investigation. With the advent of technology, elaborate tools which summarize data more efficiently by using cutting edge data visualisation techniques have come out. Beagle is one such tool which visualises the large communication data using different panels such that the inspector has better chances of finding the scam network.</td></tr></table>"
+        },
+        {
+            "name": "Semantic Web Mining",
+            "abbr": "SWM",
+            "image": "swm.jpeg",
+            "value": 100,
+            "title": "Generating Influential Replies for Tweets on a Political Topic",
+            "description": "<br/><table><tr><td border=3 height=100 width=100><img src='twitter.webp' width=60px height=50px></td><td border=3 height=100 width=500><b><h3>Generating Influential Replies for Tweets on a Political Topic</h3></b><br/> In the era of social networking, it is easy to inﬂuence people or reach out to a target audience with a new product or service. This can lead to the spread of positive as well as negative elements in the network depending on the type and source of information. Given a piece of information, it becomes essential to understand how different people would react to it. The objective of this project is to build a topic-based language model for a tweet network. We predict the reply of a user to a tweet, based on their political inclinations - left or right.</td></tr></table>"
+        },
+        {
+            "name": "Social Media Mining",
+            "abbr": "SMM",
+            "image": "socialmediamining.jpeg",
+            "value": 100,
+            "title": "Detecting bot inflated videos on YouTube",
+            "description": "<table><tr><td border=3 height=100 width=100><img src='youtube.jpg' width=60px height=50px></td><td border=3 height=100 width=500><b><h3>Detecting bot inflated videos on YouTube</h3></b>Youtube has emerged as one of the social media platforms for creators to publish content and monetize it through their increasing audience and viewership. In the race of coming in limelight, few creators try to improve the statistics of published content like the number of views, subscribers, likes, etc. through automated scripts or bots. This is a concern for two reasons - a) inflated views lead to disparity among the genuine creators, gaining popularity via organic traffic and others resorting to bot inflation for fame, thus abusing the remuneration mechanism b) ad impressions which work only in case of user interactions like clicks, get wasted due to the activity of view bots, taking a toll on the youtube advertisers. Hence, it is important to solutionize the problem by analyzing the social media interactions and penalize the fake popularity seekers for violating the terms of service. This would also help businesses to get finer insights from their consumer base and not get misled by the popularity of certain content.</td></tr></table>"
+        },
+        {
+            "name": "Data Mining and Machine Learning Lab",
+            "abbr": "DMML",
+            "image": "interspot.PNG",
+            "title": "Interspot: Interactive Spammer Detection in Social Media",
+            "value": 100,
+            "description": "<table><tr><td border=3 height=100 width=100><img src='spam.png' width=60px height=60px></td><td border=3 height=100 width=500><b><h3>Interspot: Interactive Spammer Detection in Social Media</h3></b>Spammer detection in social media has recently received increasing attention due to the rocketing growth of user-generated data. Despite the empirical success of existing systems, spammers may continuously evolve over time to impersonate normal users while new types of spammers may also emerge to combat with the current detection system, leading to the fact that a built system will gradually lose its efficacy in spotting spammers. To address this issue, grounded on the contextual bandit model, we present a novel system for conducting interactive spammer detection. </td></tr></table>"
+        },
+        {
+            "name": "Intelligent Traffic Monitoring System",
+            "abbr": "ITMS",
+            "image": "socialnetwork.jpeg",
+            "value": 100,
+            "title": "Architectural Framework for Intelligent Traffic Monitoring System",
+            "description": "<table><tr><td border=3 height=100 width=100><img src='traffic.png' width=60px height=50px></td><td border=3 height=100 width=500><b><h3>Architectural Framework for Intelligent Traffic Monitoring System</h3></b>Designed a communication module (client server communication) using the concept of publish subscriber mode of interaction for an application. The application is a synergetic approach wherein the user provides situational input to the system and is in turn benefitted by it. The framework is interfacing the user with the local server via an android app and integrates with Eventshop at the backend. Space-Time -Theme constitutes the crucial data for research and analysis. Used technologies like push messages using rabbitmq/mqtt service, gps (LocationManager) to find out location of a person, server side scripting using php, ngrok tunnel to send data between client and server encrypted: data sent in json format, client side front end: Android.</td></tr></table>"
+        }
+    ]
+}

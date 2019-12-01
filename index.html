@@ -98,10 +98,10 @@
 
     <center>
     <div style="width: 58%; height:610px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
-        <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Timeline of Events </h3>
-        <div class="col-sm" style="text-align: left"><div id="slider-time"></div></div>
+        <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Timeline of Events </h3><br/>
+        <div class="col-sm" style="text-align: left; background-color: #F5F5F5; border-radius: 30px;"><br/><div id="slider-time"></div></div><br/>
             <div><div style="width: 60%;" id="value-time-parent">
-                <div id="value-time" style="text-align: left; border-radius: 15px; padding: 15px"></div>
+                <div id="value-time" style="text-align: left; border-radius: 15px; padding: 15px background-color: #F5F5F5"></div>
                 <div id="value-time-image"></div>
             </div></div>
     </div>
@@ -427,7 +427,7 @@
         .min(d3.min(dataTime))
         .max(d3.max(dataTime))
         .step(1000 * 60 * 60 * 24 * 365)
-        .width(800)
+        .width(850)
         .tickFormat(d3.timeFormat('%Y'))
         .tickValues(dataTime)
         .default(new Date(1998, 10, 3))
@@ -502,8 +502,7 @@
         .attr('width', 1000)
         .attr('height', 100)
         .append('g')
-        .attr('transform', 'translate(30,30)')
-        .style('backgroundColor', 'black');
+        .attr('transform', 'translate(30,30)');
 
       gTime.call(sliderTime);
       d3.select('#value-time').selectAll("*").remove()

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Bradley+Hand" /> -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -58,10 +57,13 @@
             text-anchor: middle;
         }
 
+        .zoom:hover {
+          transform: scale(1.2);
+        }
+
     </style>
   </head>
   <body>
-    <!-- <div style="width: 40%; background-color: white; color: black; float: left"> -->
     <center>
         <div style="width: 50%; height: 50%; opacity: 0.9; margin-top: 20px; margin-left: 10px; border-radius: 20px">
             <img src="profile.jpeg" alt="Avatar" class="avatar">
@@ -74,7 +76,8 @@
                         <a href="https://www.quora.com/profile/Shivam-Dhar/"><img src="quora.png" style="width: 40px; height: 40px" class="social" id="quora"></a>
                 </div>
            </div>
-         </center> 
+         </center>
+         <hr style="width: 50%; margin-left: 25%;"> 
         <center>
         <div style="font-family: 'Montserrat', sans-serif; opacity: 0.8; border-radius: 20px">
             <br/>
@@ -91,7 +94,8 @@
             <svg id="skills"></svg>
         </div><br/>
         </center>
-    <!-- </div> -->
+        <hr style="width: 50%; margin-left: 25%">
+
     <center>
     <div style="width: 58%; height:610px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
         <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Timeline of Events </h3>
@@ -102,6 +106,7 @@
             </div></div>
     </div>
     </center>
+    <hr style="width: 50%; margin-left: 25%">
 
     <center>
     <div style="width: 80%; height:500px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
@@ -216,9 +221,6 @@
                 })
                 .on("mousemove", function(){ return tooltip.style("top", (event.pageY-105)+"px").style("left",(event.pageX-50)+"px"); })
                 .on("mouseout", function(){ return tooltip.style("visibility", "hidden"); });
-
-            newSlice.append('title')
-                .text(d => d.data.name + '\n' + formatNumber(d.value));
 
             newSlice.append('path')
                 .attr('class', 'main-arc')
@@ -375,14 +377,14 @@
                d3.select("#project_description").html("")
                if (d.data.abbr == "DV"){
 
-                   d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% height=40% src=" + d.data.image + ">")
+                   d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% class=zoom height=40% src=" + d.data.image + ">")
                }
                else if(d.data.abbr == "SMM"){
 
-                   d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% height=40% src=" + d.data.image + ">")
+                   d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% class=zoom height=40% src=" + d.data.image + ">")
                }
                else{
-                  d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% height=50% src=" + d.data.image + ">")
+                  d3.select("#project_description").append("text").html("<br/><div>"+ d.data.description +"</div><br/><img width=100% class=zoom height=50% src=" + d.data.image + ">")
                }
 
              })
@@ -399,7 +401,7 @@
              .on("mousemove", function(){ return tooltip.style("top", (event.pageY-105)+"px").style("left",(event.pageX-50)+"px"); })
              .on("mouseout", function(){ return tooltip.style("visibility", "hidden"); })
 
-        d3.select("#project_description").append("text").html("<br/><div>"+ data.children[1].description +"</div><br/><img width=100% height=50% src=" + data.children[1].image + ">")
+        d3.select("#project_description").append("text").html("<br/><div>"+ data.children[1].description +"</div><br/><img width=100% class=zoom height=50% src=" + data.children[1].image + ">")
         node.append("text")
             .attr("dy", ".2em")
             .style("text-anchor", "middle")
@@ -500,14 +502,14 @@
         .attr('width', 1000)
         .attr('height', 100)
         .append('g')
-        .attr('transform', 'translate(30,30)');
+        .attr('transform', 'translate(30,30)')
+        .style('backgroundColor', 'black');
 
       gTime.call(sliderTime);
       d3.select('#value-time').selectAll("*").remove()
 
       d3.select('#value-time').append("text").html("<table><tr><td><img src='book.gif' width='50px' height='50px'></td><td>Started my bachelors in Computer Science and Engineering from PES Institute Of Technology, Bangalore, India. </td></tr><tr><td><img src='dunamis.gif' width='50px' height='50px'></td><td>Organized Mathemaniac as part of the Dunamis Science fest.</td></tr></table>")
       d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "250px").attr("width", "520px")
-
 
     }
     drawViz1();

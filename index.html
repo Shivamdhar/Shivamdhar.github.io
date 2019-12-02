@@ -83,10 +83,10 @@
 
     <center>
     <div style="width: 58%; height:610px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
-        <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Timeline of Events </h3><br/>
-        <div class="col-sm" style="text-align: left; background-color: #F5F5F5; border-radius: 30px;"><br/><div id="slider-time"></div></div><br/>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 30px;"> Timeline of Events </h3><br/>
+        <div class="col-sm" style="text-align: left; border-radius: 30px;"><br/><div id="slider-time"></div></div><br/>
             <div><div style="width: 60%;" id="value-time-parent">
-                <div id="value-time" style="text-align: left; border-radius: 15px; padding: 15px background-color: #F5F5F5"></div>
+                <div id="value-time" style="text-align: left; border-radius: 15px; padding: 15px;"></div>
                 <div id="value-time-image"></div>
             </div></div>
     </div>
@@ -113,7 +113,7 @@
       <hr style="width: 50%; margin-left: 25%">
     <center>
     <div style="width: 80%; height:500px; color: black; border-radius: 20px; margin-top: 20px; font-family: 'Montserrat', sans-serif;">
-        <h3 style="font-family: 'Montserrat', sans-serif;; font-size: 30px;"> Academic Projects </h3>
+        <h3 style="font-family: 'Montserrat', sans-serif; font-size: 30px;"> Academic Projects </h3>
         <div class='parent flex-parent'>
           <div style="display: inline-block;" class='child flex-child'>
             <svg id="dataviz1"></svg>
@@ -434,13 +434,14 @@
         .tickFormat(d3.timeFormat('%Y'))
         .tickValues(dataTime)
         .default(new Date(1998, 10, 3))
+        .fill('#808000')
         .on('onchange', val => {
           if(d3.timeFormat('%Y')(sliderTime.value()) === "2012"){
             d3.select('#value-time').selectAll("*").remove()
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").html("<table><tr><td><img src='book.gif' width='50px' height='50px'></td><td>Started my bachelors in Computer Science and Engineering from PES Institute Of Technology, Bangalore, India. </td></tr><tr><td><img src='dunamis.gif' width='50px' height='50px'></td><td>Organized Mathemaniac as part of the Dunamis Science fest.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "250px").attr("width", "520px")
+            d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "100%").attr("width", "100%")
 
           }
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2013"){
@@ -448,21 +449,21 @@
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").html("<table><tr><td><img src='publicist.png' width='50px' height='50px'></td><td>Participated in AtmaTrisha, college's cultural fest as a publicist, to raise funds for people in need - by making and selling sandwiches.<br/></td></tr><tr><td><img src='mts.gif' width='80px' height='70px'></td><td>Joined Ordell Ugo as a Member Technical Staff.<br/></td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2013.png").attr("height", "200px").attr("width", "500px")
+            d3.select('#value-time-image').append("img").attr("src", "2013.png").attr("height", "100%").attr("width", "100%")
           }
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2014"){
             d3.select('#value-time').selectAll("*").remove()
             d3.select('#value-time-image').selectAll("*").remove()
 
-            d3.select('#value-time').append("text").html("<table><tr><td><img src='cloud.png' width='80px' height='70px'></td><td>Started my first ever research project in the Cloud Computing and Big Data Lab at PESIT.</td></tr><tr><td><img src='adsense.png' width='60px' height='70px'></td><td>As a publicist and advertiser created ad campaigns for Abalashrama - shelter to abandoned women and orphan girls, using Google adsense.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2014.png").attr("height", "200px").attr("width", "530px")
+            d3.select('#value-time').append("text").html("<table><tr><td><img src='cloud.png' width='80px' height='70px'></td><td>Started my first ever research project in the Cloud Computing and Big Data Lab at PESIT.</td></tr><tr><td><img src='adsense.png' width='60px' height='70px'></td><td>As a publicist and advertiser created ad campaigns for Abalashrama - shelter for abandoned women and orphan girls, using Google adsense.</td></tr></table>")
+            d3.select('#value-time-image').append("img").attr("src", "2014.png").attr("height", "100%").attr("width", "100%")
           }
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2015"){
             d3.select('#value-time').selectAll("*").remove()
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").html("<table><tr><td><img src='collaboration.png' width='50px' height='50px'></td><td>Completed projects in collaboration with EMC2 and Hewlett Packard Enterprise.</td></tr><tr><td><img src='intern.png' width='50px' height='50px'></td><td>Joined Oracle as a summer intern.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2015.png").attr("height", "180px").attr("width", "550px")
+            d3.select('#value-time-image').append("img").attr("src", "2015.png").attr("height", "100%").attr("width", "100%")
           }
 
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2016"){
@@ -470,7 +471,7 @@
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").html("<table><tr><td><img src='intern.png' width='50px' height='50px'></td><td>Joined India's largest furniture giant, Urban Ladder as a spring intern.</td></tr><tr><td><img src='job.png' width='50px' height='50px'></td><td>Accepted the offer for Software Developer 1 at Urban Ladder.</td></tr><tr><td><img src='paper.png' width='50px' height='50px'></td><td>Presented paper titled Identification of Escalations during Product Maintenance at the 5th International Conference on Advances in Computing, Communications and Informatics (ICACCI), Jaipur, India which was published in IEEE Explore.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2016.png").attr("height", "180px").attr("width", "550px")
+            d3.select('#value-time-image').append("img").attr("src", "2016.png").attr("height", "100%").attr("width", "100%")
           }
 
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2017"){
@@ -478,7 +479,7 @@
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").html("<table><tr><td><img src='promotion.png' width='50px' height='50px'></td><td>Promoted to Software Development Engineer 2 at Urban ladder.</td></tr><tr><td><img src='web.png' width='50px' height='=50px'></td><td>Conducted a session for web development at Mountblue.</td></tr><tr><td><img src='gre.jpg' width='50px' height='50px'></td><td>Took GRE and TOEFL for applying to masters in Computer Science in the United States.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2017.png").attr("height", "280px").attr("width", "550px")
+            d3.select('#value-time-image').append("img").attr("src", "2017.png").attr("height", "100%").attr("width", "100%")
           }
 
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2018"){
@@ -486,7 +487,7 @@
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").html("<table><tr><td><img src='cap.png' width='50px' height='50px'></td><td>Accepted the admit and started my masters in Computer Science at Arizona State University.</td></tr><tr><td><img src='hackathon.svg' width='50px' height='50px'></td><td>Won the 5th annual Hacks for Humanity at ASU.</td></tr><tr><td><img src='research.png' width='50px' height='50px'></td><td>Started working as a CIS grader and Research aide at WP Carey School of Business under Ziru Li.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2018.png").attr("height", "280px").attr("width", "550px")
+            d3.select('#value-time-image').append("img").attr("src", "2018.png").attr("height", "100%").attr("width", "100%")
           }
 
           else if(d3.timeFormat('%Y')(sliderTime.value()) === "2019"){
@@ -494,7 +495,7 @@
             d3.select('#value-time-image').selectAll("*").remove()
 
             d3.select('#value-time').append("text").style("border-radius", "10px").style("background-color", "#e6e6e8").html("<table><tr><td><img src='intern.png' width='50px' height='50px'></td><td>Joined TeleTracking Technologies as a Software Engineer Intern and was among the top 5 interns this summer.</td></tr><tr><td><img src='paper.png' width='50px' height='50px'></td><td>Demo paper titled InterSpot: Interactive Spammer Detection in Social Media got published at the International Joint Conference on Artificial Intelligence (IJCAI), Macao, China under the guidance of Dr. Huan Liu and Kaize Ding.</td></tr><tr><td><img src='job.png' width='50px' height='50px'></td><td>Accepted part-time Software Engineer 1 position at TeleTracking Technologies for the fall 2019.</td></tr></table>")
-            d3.select('#value-time-image').append("img").attr("src", "2019.png").attr("height", "250px").attr("width", "550px")
+            d3.select('#value-time-image').append("img").attr("src", "2019.png").attr("height", "100%").attr("width", "100%")
           }
 
         });
@@ -511,7 +512,7 @@
       d3.select('#value-time').selectAll("*").remove()
 
       d3.select('#value-time').append("text").html("<table><tr><td><img src='book.gif' width='50px' height='50px'></td><td>Started my bachelors in Computer Science and Engineering from PES Institute Of Technology, Bangalore, India. </td></tr><tr><td><img src='dunamis.gif' width='50px' height='50px'></td><td>Organized Mathemaniac as part of the Dunamis Science fest.</td></tr></table>")
-      d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "250px").attr("width", "520px")
+      d3.select('#value-time-image').append("img").attr("src", "2012.png").attr("height", "100%").attr("width", "100%")
 
     }
     drawViz1();
